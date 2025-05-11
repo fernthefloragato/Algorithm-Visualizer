@@ -1,0 +1,37 @@
+body {
+    background-color: #1d1a1a;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+
+
+#stackContainer {
+  margin: 30px auto;
+  width: 200px;
+  border: 10px solid #161414;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.stack-item {
+  width: 150px;
+  height: 40px;
+  background-color: #4a90e2;
+  color: white;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+h1 {
+    color: white;
+}
