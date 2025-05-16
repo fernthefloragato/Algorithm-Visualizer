@@ -4,7 +4,7 @@ import { Button } from '../Components/Button'
 
 export function Page1() {
     return (
-    <div className="app-container">
+    <div className="container">
       <title>Algorithms Visualizer</title>
 
       <div className="algorithmWindow">
