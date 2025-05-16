@@ -29,7 +29,7 @@
   margin-right: auto;
 }
 
-.barsVisualizer .bar {
+.bar {
   width: 20px;
   background-color: rgb(68, 105, 74);
   transition: height 0.3s ease;
