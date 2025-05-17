@@ -1,21 +1,19 @@
-import { useState } from 'react'
 import '../App.css'
-import React, {useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import { BarsVisualizer } from '../Components/BarsVisualizer'
 import "./Page1.css"
-import { Button } from '../Components/Button'
+import { SortControlPanel } from '../Components/SortControlPanel'
 // import { StatisticsBar } from '../Components/StatisticsBar'
 
 export function Page1() {
 
-  const n = 300
   const [array, setArray] = useState([])
   const [activeIndices, setActiveIndices] = useState([])
 
   // Fills the array with values 1 through n
-  const generateRandomArray = () => {
+  const generateRandomArray = (barCount = 100) => {
     const newArray = []
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < barCount; i++) {
       newArray.push(i + 1)
     }
 
@@ -29,7 +27,7 @@ export function Page1() {
   }
 
   // Uses the quick sort to sort the array of heights
-  const quickSort = async () => {
+  const quickSort = async (speed = 0) => {
     const sortedArray = [...array]
 
     async function quickSortHelper(low, high) {
@@ -50,13 +48,13 @@ export function Page1() {
           i++;
           [sortedArray[i], sortedArray[j]] = [sortedArray[j], sortedArray[i]]
           setArray([...sortedArray])
-          await sleep(0)
+          await sleep(speed)
         }
       }
 
       [sortedArray[i + 1], sortedArray[high]] = [sortedArray[high], sortedArray[i + 1]]
       setArray([...sortedArray])
-      await sleep(0)
+      await sleep(speed)
 
       return i + 1
     }
@@ -84,24 +82,12 @@ export function Page1() {
         <BarsVisualizer array={array} activeIndices={activeIndices} />
       </div>
 
-      <div className="buttonPanel">
-        <Button 
-          func={generateRandomArray}
-          arr={array}
-          text={"Generate"}
-          color={"Gray"}
-          width={"200px"}
-          borderRadius={"20px"} 
-          height={"250px"}/>
-
-        <Button 
-          func={quickSort}
-          arr={array}
-          text={"Play"}
-          color={"Gray"}
-          width={"200px"}
-          borderRadius={"20px"} 
-          height={"250px"}/>
+      <div>
+        <SortControlPanel
+          onGenerate={generateRandomArray}
+          onSort={quickSort}
+          defaultBars={100}
+          defautltSpeed={25}/>
       </div>
     </div>
   )
