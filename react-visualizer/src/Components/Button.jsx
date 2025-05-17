@@ -3,7 +3,12 @@
 export function Button(props) {
 
     return(
-        <button style={{backgroundColor: props.color, width: props.width, borderRadius: props.borderRadius}}>
+        <button onClick={() => props.func(props.arr)}style={{
+            backgroundColor: props.color,
+            width: props.width,
+            borderRadius: props.borderRadius,
+            height: props.height}}>
+
             <p>{props.text}</p>
         </button>
     )

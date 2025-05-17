@@ -3,6 +3,7 @@ import '../App.css'
 import React, {useEffect } from 'react'
 import { BarsVisualizer } from '../Components/BarsVisualizer'
 import "./Page2.css"
+import { Button } from '../Components/Button'
 
 export function Page2() {
 
@@ -67,8 +68,23 @@ export function Page2() {
       </div>
 
       <div className="buttonPanel">
-        <button onClick={generateRandomArray}>Generate</button>
-        <button onClick={bubbleSort}>Play</button>
+        <Button 
+          func={generateRandomArray}
+          arr={array}
+          text={"Generate"}
+          color={"Gray"}
+          width={"200px"}
+          borderRadius={"20px"} 
+          height={"250px"}/>
+
+        <Button 
+          func={bubbleSort}
+          arr={array}
+          text={"Play"}
+          color={"Gray"}
+          width={"200px"}
+          borderRadius={"20px"} 
+          height={"250px"}/>
       </div>
     </div>
   )
