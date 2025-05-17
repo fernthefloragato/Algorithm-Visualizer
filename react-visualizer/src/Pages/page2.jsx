@@ -5,15 +5,24 @@ import { BarsVisualizer } from '../Components/BarsVisualizer'
 import "./Page2.css"
 
 export function Page2() {
-  const n = 50
-  const [array, setArray] = useState([])
 
-  // Fills the array with values of random heights
+  const n = 100
+  const [array, setArray] = useState([])
+  const [activeIndices, setActiveIndices] = useState([])
+
+  // Fills the array with values 1 through n
   const generateRandomArray = () => {
     const newArray = []
     for (let i = 0; i < n; i++) {
-      newArray.push(Math.random() * 100)
+      newArray.push(i + 1)
     }
+
+    // Randomizes the populated array
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+    }
+
     setArray(newArray)
   }
 
@@ -23,6 +32,7 @@ export function Page2() {
 
     for (let i = 0; i < sortedArray.length - 1; i++) {
       for (let j = 0; j < sortedArray.length - i - 1; j++) {
+        setActiveIndices([j, j + 1])
         if (sortedArray[j] > sortedArray[j + 1]) {
           let temp = sortedArray[j]
           sortedArray[j] = sortedArray[j + 1]
@@ -34,6 +44,7 @@ export function Page2() {
         }
       }
     }
+    setActiveIndices([])
   }
 
   // Helper function to delay each sorting animation so the user can see the visual movement
@@ -45,14 +56,14 @@ export function Page2() {
     generateRandomArray()
   }, [])
 
-
+    // HTML
     return (
     <div className="container">
       <title>Algorithms Visualizer</title>
 
       <div className="algorithmWindow">
-        <h1>Visualizer 2</h1>
-        <BarsVisualizer array={array}/>
+        <h1>Bubble Sort Visualizer</h1>
+        <BarsVisualizer array={array} activeIndices={activeIndices} />
       </div>
 
       <div className="buttonPanel">
