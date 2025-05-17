@@ -4,6 +4,7 @@ import React, {useEffect } from 'react'
 import { BarsVisualizer } from '../Components/BarsVisualizer'
 import "./Page2.css"
 import { Button } from '../Components/Button'
+// import { StatisticsBar } from '../Components/StatisticsBar'
 
 export function Page2() {
 
@@ -30,6 +31,8 @@ export function Page2() {
   // Uses the bubble sort to sort the array of heights
   const bubbleSort = async () => {
     const sortedArray = [...array]
+    let swapCount = 0
+    const updateInterval = 5
 
     for (let i = 0; i < sortedArray.length - 1; i++) {
       for (let j = 0; j < sortedArray.length - i - 1; j++) {
@@ -39,9 +42,11 @@ export function Page2() {
           sortedArray[j] = sortedArray[j + 1]
           sortedArray[j + 1] = temp
 
-          setArray([...sortedArray])
-
-          await sleep(1)
+          // Updates every "updateInterval" iterations
+          if (swapCount % updateInterval === 0) {
+            setArray([...sortedArray])
+            await sleep(0)
+          }
         }
       }
     }
