@@ -1,0 +1,38 @@
+.homeText h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 100px;
+}
+
+.description {
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.description p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.description ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.description h2 {
+  text-align: left;
+}
+
+.description li {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.otherSocials h2 {
+    color: white
+}

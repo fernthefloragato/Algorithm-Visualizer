@@ -119,12 +119,14 @@ export function Page1() {
     <div className="container">
       <title>Algorithms Visualizer</title>
 
+      <h1>Quick Sort</h1>
+
       <div className="algorithmWindow">
-        <h1>Quick Sort Visualizer</h1>
+        <h1>Sorting Visualizer</h1>
         <BarsVisualizer array={array} activeIndices={activeIndices} />
       </div>
 
-      <div>
+      <div className="controlPanel">
         <SortControlPanel
           onGenerate={generateRandomArray}
           onSort={quickSort}

@@ -47,3 +47,14 @@
   transition: height 0.3s ease;
   border-radius: 4px;
 }
+
+.controlPanel {
+  display: flex;
+  height: 400px;
+  margin-top: 80px;
+  padding-left: 50px
+}
+
+h1 {
+  
+}

@@ -13,7 +13,7 @@ export function SortControlPanel({onGenerate, onSort, array, defaultBars = 100, 
         <div className="sortControlPanel">
             <h1>Control Panel</h1>
             <div className="inputGroup">
-                <label>
+                <label style={{color: 'white'}}>
                     Bars&nbsp;
                     <input
                         type="number"
@@ -24,7 +24,7 @@ export function SortControlPanel({onGenerate, onSort, array, defaultBars = 100, 
                     />
                 </label>
 
-                <label>
+                <label style={{color: 'white'}}>
                     Speed&nbsp;(ms)
                     <input
                         type="number"
